@@ -24,16 +24,16 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the source code from the Git repository
-                git 'https://github.com/Nihalkumbhalkar/angular_project.git'
+                git 'https://github.com/Nihalkumbhalkar/angular_project'
             }
         }
         
         stage('Build and Test') {
             steps {
                 // Install Node.js and Angular CLI if not already installed
-                // sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
-                // sh 'apt-get install -y nodejs'
-                // sh 'npm install -g @angular/cli'
+                 sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
+                 sh 'apt-get install -y nodejs'
+                 sh 'npm install -g @angular/cli'
                 
                 // Install project dependencies
                 sh 'npm install'

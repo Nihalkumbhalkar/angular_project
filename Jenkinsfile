@@ -9,14 +9,14 @@ pipeline {
     } 
     stage('Build') {
       steps {
-        sh 'npm install'
-        sh 'npm run build --prod'
+        bat 'npm install'
+        bat 'npm run build --prod'
       }
     }
     stage('Host on Localhost') {
       steps {
-        sh 'npm install -g http-server'
-        sh 'http-server dist/first-app -p 4500 &'
+        bat 'npm install -g http-server'
+        bat 'http-server dist/first-app -p 4500 &'
       }
     }
   }

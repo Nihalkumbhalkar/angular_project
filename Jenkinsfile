@@ -16,7 +16,7 @@ pipeline {
     stage('Host on Localhost') {
       steps {
         bat 'npm install -g http-server'
-        bat 'http-server dist/first-app -p 4500 &'
+        bat 'http-server dist/first-app -p 4500'
       }
     }
   }

@@ -15,7 +15,14 @@ pipeline {
         }
         stage('Host on Localhost') {
         steps {
-            bat 'npm install -g http-server'
+            script {
+            def httpServerInstalled = bat(returnStatus: true, script: 'http-server --version')
+            if (httpServerInstalled != 0) {
+                echo "http-server is already installed."
+            } else {
+                bat 'npm install -g http-server'
+            }
+            }
             bat 'http-server dist/first-app -p 4500'
         }
         }
